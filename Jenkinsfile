@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        AWS_ACCOUNT_ID="993745358053"
-        AWS_REGION="us-east-1" 
+            AWS_ACCOUNT_ID="993745358053"
+            AWS_DEFAULT_REGION="us-east-1"
 	    CLUSTER_NAME="my-python-app"
 	    SERVICE_NAME="python-service"
 	    TASK_DEFINITION_NAME="python-demo"
