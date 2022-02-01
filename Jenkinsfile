@@ -3,7 +3,7 @@ pipeline {
     environment {
         AWS_Account_ID="993745358053"
         AWS_REGION="us-east-1" 
-	    CLUSTER_NAME="python-app"
+	    CLUSTER_NAME="my-python-app"
 	    SERVICE_NAME="python-service"
 	    TASK_DEFINITION_NAME="python-demo"
 	    DESIRED_COUNT="1"
