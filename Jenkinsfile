@@ -12,7 +12,7 @@ pipeline {
         stage ('Build') {
             steps {
                   script {
-                      sh "dockerImage = docker.build registry"
+                       dockerImage = docker.build registry
                      //'docker build -t my-docker-repo .'
                      //'docker tag my-docker-repo:latest 993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest'
                   }
