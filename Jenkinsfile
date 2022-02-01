@@ -37,7 +37,7 @@ pipeline {
         stage ('Run') {
             steps {
                 script {
-                     'docker run -d -p 5000:8070 --rm --name my-python-container 993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest'
+                     'docker run -d -p 3000:8070 --rm --name my-python-container 993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest'
                 }
             }
        }
