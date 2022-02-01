@@ -18,4 +18,4 @@ aws ecs register-task-definition --cli-input-json file://task-definition.json --
 
 REVISION=`aws ecs describe-task-definition --task-definition "${python-demo}" --region "${us-east-1}" | jq .taskDefinition.revision`
 echo "REVISION= " "${REVISION}"
-aws ecs update-service --cluster "${python-app}" --service "${python-service}" --task-definition "${python-demo}":"${REVISION}" --desired-count "${1}"
+aws ecs update-service --cluster "${my-python-app}" --service "${python-service}" --task-definition "${python-demo}":"${REVISION}" --desired-count "${1}"
