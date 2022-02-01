@@ -30,5 +30,8 @@ pipeline {
             steps {
                 script {
                     sh "docker run -d -p 8080:8070 --rm --name my-python-container 993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest"
+                }
+            }
+        }
     }
 }
