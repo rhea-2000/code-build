@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        AWS_Account_ID="993745358053"
+        AWS_ACCOUNT_ID="993745358053"
         AWS_REGION="us-east-1" 
 	    CLUSTER_NAME="my-python-app"
 	    SERVICE_NAME="python-service"
@@ -21,7 +21,7 @@ pipeline {
         stage ('Build') {
             steps {
                   script {
-                       dockerImage = docker.build registry
+			  dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
                      //'docker build -t my-docker-repo .'
                      //'docker tag my-docker-repo:latest 993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest'
                   }
