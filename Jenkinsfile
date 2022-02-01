@@ -1,7 +1,15 @@
 pipeline {
     agent any
     environment {
-        registry = "993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo"
+        AWS_Account_ID="993745358053"
+        AWS_REGION="us-east-1" 
+	    CLUSTER_NAME="python-app"
+	    SERVICE_NAME="python-service"
+	    TASK_DEFINITION_NAME="python-demo"
+	    DESIRED_COUNT="1"
+        IMAGE_REPO_NAME="my-docker-repo"
+        IMAGE_TAG="${env.latest}"
+        REPOSITORY_URI = "${993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo}"
     }
     stages {
         stage ('Checkout') {
@@ -33,5 +41,13 @@ pipeline {
                 }
             }
        }
+        stage('Deploy') {
+             steps{
+                 withAWS(credentials: registryCredential, region: "${AWS_DEFAULT_REGION}") {
+                script {
+			         sh './script.sh'
+                }
+            } 
+        }
    }
 }    
