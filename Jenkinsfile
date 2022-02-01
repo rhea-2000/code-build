@@ -7,9 +7,10 @@ pipeline {
 	    SERVICE_NAME="python-service"
 	    TASK_DEFINITION_NAME="python-demo"
 	    DESIRED_COUNT="1"
-        IMAGE_REPO_NAME="my-docker-repo"
-        IMAGE_TAG="${env.latest}"
-        REPOSITORY_URI = "${993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo}"
+            IMAGE_REPO_NAME="993745358053.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo"
+            IMAGE_TAG="${env.BUILD_ID}"
+            REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
+	    registryCredentials= "AKIA60X6WZTSQY5SHDVR"
     }
     stages {
         stage ('Checkout') {
